@@ -9,9 +9,14 @@ import SwiftUI
 
 @main
 struct Class_property_sharingApp: App {
+    @StateObject var classInstanceWithProperty = ClassWithPropertyToShare()
+    @StateObject var classInstanceNeedsProperty = ClassToSharePropertyWith()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(classInstanceWithProperty)
+                .environmentObject(classInstanceNeedsProperty)
         }
     }
 }
